@@ -28,7 +28,9 @@ import Section from './src/components/Section';
 import MyButton from './src/components/MyButton';
 import MyText from './src/components/MyText';
 import { PostList } from './src/components/post/PostList';
-import { Provider as PaperProvider, MD3LightTheme } from 'react-native-paper';
+import { PaperProvider, MD3LightTheme } from 'react-native-paper';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -40,8 +42,12 @@ function App(): JSX.Element {
   
 
   return (
-    <PaperProvider theme={MD3LightTheme}> <PostList/></PaperProvider>
-   
+    <SafeAreaProvider>
+    <PaperProvider theme={MD3LightTheme}>
+    <PostList/>
+    </PaperProvider>
+      </SafeAreaProvider>
+
   );
 }
 
